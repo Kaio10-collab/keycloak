@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.5 # Versão estável do Keycloak
+    command: start-dev # Inicia o Keycloak em modo de desenvolvimento
+    environment:
+      KEYCLOAK_ADMIN: admin # Usuário administrador inicial
+      KEYCLOAK_ADMIN_PASSWORD: admin # Senha do administrador
+      KC_DB: dev-file # Usa um banco de dados em arquivo para desenvolvimento
+      KC_HOSTNAME: localhost # Define o hostname para acesso
+      KC_HTTP_PORT: 8080 # Porta HTTP padrão do Keycloak
+      KC_FEATURES: token-exchange,admin-fine-grained-authz # Habilita recursos úteis
+    ports:
+      - "8080:8080" # Mapeia a porta do container para a sua máquina
+    volumes:
+      - ./keycloak-data:/opt/keycloak/data # Persiste os dados do Keycloak
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/realms/master || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
