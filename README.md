@@ -49,7 +49,7 @@ Navegue até a pasta `keycloak-setup` (ou onde você salvou seu arquivo `docker-
 
 ```bash
 docker compose up -d
-
+```
 ## 3. Executar o Projeto
 Para rodar a aplicação, use o Maven:
 mvn spring-boot:run
