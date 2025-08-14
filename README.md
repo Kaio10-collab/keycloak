@@ -58,8 +58,8 @@ mvn spring-boot:run
 Todos os endpoints requerem um token de acesso válido no cabeçalho Authorization: Bearer <token>.
 
 Método	Endpoint	Descrição
-POST	/users	Cria um novo usuário.
-GET	/users/{id}	Busca um usuário pelo ID.
-GET	/users	Lista todos os usuários.
-PUT	/users/{id}	Atualiza um usuário existente.
-DELETE	/users/{id}	Exclui um usuário pelo ID.
+```POST	/users	Cria um novo usuário.```
+```GET	/users/{id}	Busca um usuário pelo ID.```
+```GET	/users	Lista todos os usuários.```
+```PUT	/users/{id}	Atualiza um usuário existente.```
+```DELETE	/users/{id}	Exclui um usuário pelo ID.```
